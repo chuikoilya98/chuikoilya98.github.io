@@ -1,0 +1,131 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#sheet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 25;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+#sheet[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#sheet .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: var(--overlay);
+  opacity: 0.75;
+}
+
+#sheet .contents {
+  border-radius: 1rem 1rem 0 0;
+
+  background: var(--black);
+
+  position: relative;
+
+  --default-transitions: transform 0.5s, border-radius 0.5s;
+
+  transition: var(--default-transitions);
+  transform: translateY(0);
+
+  max-height: 100vh;
+  height: 100vh !important;
+
+  width: 100%;
+  max-width: 700px;
+
+  box-sizing: border-box;
+  padding: 0;
+  padding-top: 3rem;
+}
+
+#sheet .comment {
+  font-family: 'Object Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--light-grey);
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+#sheet main {
+  padding-top: unset;
+  overflow-y: scroll;
+}
+
+#sheet .contents:not(.not-selectable) {
+  transition: var(--default-transitions), height 0.5s;
+}
+
+#sheet .contents.fullscreen {
+  border-radius: 0;
+}
+
+#sheet[aria-hidden="true"] .contents {
+  transform: translateY(100%);
+}
+
+#sheet .draggable-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 3rem;
+  margin: auto;
+  padding: 1rem;
+  cursor: grab;
+}
+
+#sheet .draggable-thumb {
+  width: inherit;
+  height: 0.25rem;
+  background: var(--divider);
+  border-radius: 0.125rem;
+  margin-right: 8px;
+}
+
+#sheet .close-sheet {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 33px;
+}
+
+#sheet .body {
+  height: 100%;
+  overflow-y: auto;
+  gap: 1rem;
+}

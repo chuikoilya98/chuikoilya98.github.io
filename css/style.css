@@ -1,0 +1,398 @@
+@font-face {
+  font-family: "Object Sans";
+  src: url("../fonts/ObjectSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SovMod";
+  src: url("../fonts/SovMod.woff") format("woff");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+}
+
+body {
+  background-color: var(--black);
+  padding: 0 20px;
+  color: var(--white);
+  font-family: 'Object Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.divider {
+  width: 96%;
+  height: 2px;
+  background-color: var(--grey);
+  margin: 0 auto;
+}
+
+.container main {
+  padding-top: 230px;
+}
+
+.total {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header {
+  position: fixed;
+  height: 230px;
+  background-color: var(--header-background);
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 65px;
+  z-index: 20;
+  backdrop-filter: blur(40px);
+}
+
+.main-header .logo {
+  width: 170px;
+  max-width: 170px;
+  height: 90px;
+  max-height: 90px;
+  margin-bottom: 20px;
+}
+
+.main-header .navigation {
+  /* overflow-x: scroll; */
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100vw;
+}
+
+.main-header .navigation a {
+  display: block;
+  padding: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  color: var(--nav-color);
+}
+
+h2,
+.price {
+  font-family: "SovMod", "Object Sans", sans-serif;
+}
+
+h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  color: var(--white);
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
+.promo {
+  position: relative;
+}
+
+.swiper-pagination {
+  bottom: -30px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 32px !important;
+  height: 2px !important;
+  background: var(--dark-grey) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--white) !important;
+}
+
+.promo .swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 20px);
+  max-width: 100%;
+}
+
+.promo .swiper-slide img {
+  margin: 0 auto;
+  width: 375px;
+  height: 246px;
+}
+
+.dish {
+  background-color: var(--light-black);
+  margin-bottom: 24px;
+}
+
+.dish header {
+  height: 375px;
+  min-height: 375px;
+  max-height: 375px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background-image: attr(data-image-src url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dish main,
+.dish footer {
+  padding: 16px;
+}
+
+.dish h3 {
+  margin: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.dish .info {
+  display: flex;
+  font-family: 'Object Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--light-grey);
+}
+
+.dish .info-key.info-clock {
+  position: relative;
+  padding-left: 22px;
+}
+
+.dish .info-key.info-clock:before {
+  content: url(../images/clock.svg);
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  left: 2px;
+}
+
+.dish .info-key,
+.dish .info-value {
+  padding-right: 24px;
+}
+
+.dish footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--light-grey);
+}
+
+.dish footer .price {
+  font-size: 20px;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.dish footer button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 6px;
+  width: 118px;
+  height: 42px;
+  background: var(--white);
+  border-radius: 35px;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--black);
+  border: none;
+}
+
+.dish footer button span,
+.dish footer button img {
+  pointer-events: none;
+}
+
+.dish footer button.disabled {
+  color: var(--white);
+  background: var(--black);
+  border: 1px solid var(--white);
+  pointer-events: none;
+}
+
+.dish footer button.disabled img {
+  height: 24px;
+  width: 24px;
+}
+
+#order .dish {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+#order .dish h3,
+#sheet .dish h3 {
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 8px;
+}
+
+.btn-link {
+  background-color: var(--white);
+  color: var(--black);
+  width: 90%;
+  border-radius: 18px;
+  margin: 0 auto;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+#order .dish aside {
+  min-height: 140px;
+  min-width: 130px;
+  background-image: attr(data-image-src url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#order .dish .content {
+  width: 100%;
+}
+
+#order .dish .info {
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+#order .dish .info-key {
+  width: 60%;
+  padding-right: 8px;
+}
+
+#order .dish .info-value {
+  width: 40%;
+}
+
+#order .dish footer {
+  padding-top: 0;
+}
+
+#order .dish .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#order .dish .actions button {
+  color: var(--white);
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
+  width: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  background-color: transparent;
+  border: 1px solid var(--light-grey);
+  border-radius: 50%;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#order .dish .actions .amount {
+  margin: 0 8px;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--white);
+}
+
+.btn-order {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 10px;
+  width: 343px;
+  height: 53px;
+  background-color: var(--header-background);
+  backdrop-filter: blur(40px);
+  border: 1px solid var(--white);
+  border-radius: 48px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: var(--white);
+  margin: 0 auto;
+}
+
+.spacer {
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+}
+
+.spacer-small {
+  width: 100%;
+  height: 35px;
+  background-color: transparent;
+}
+
+.page-footer {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 700px)  {
+  body {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 450px)  {
+  .dish header {
+    height: 275px;
+    min-height: 275px;
+    max-height: 275px;
+  }
+}
